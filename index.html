@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080b12">
+  <title>STREAMX</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="STREAMX home"><span class="brand-mark">S</span><span>STREAM<span class="brand-x">X</span></span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="home">Home</button>
+        <button class="nav-item" data-view="live">Live TV</button>
+        <button class="nav-item" data-view="anime">Anime</button>
+        <button class="nav-item" data-view="movies">Movies</button>
+        <button class="nav-item" data-view="shows">TV Shows</button>
+        <button class="nav-item" data-view="mylist">My List</button>
+      </nav>
+      <div class="top-actions">
+        <button class="icon-button" id="search-toggle" aria-label="Search">⌕</button>
+        <button class="profile-chip" id="settings-open" aria-label="Settings">SX</button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="hero">
+        <div class="hero-content">
+          <p class="eyebrow">YOUR SCREEN. YOUR STREAM.</p>
+          <h1>Entertainment<br><span>without the clutter.</span></h1>
+          <p class="hero-copy">Your channels, favorites, and anime in one clean place.</p>
+          <div class="hero-actions">
+            <button class="primary-button" id="browse-anime">Explore Anime <span>→</span></button>
+            <button class="secondary-button" id="open-playlist">Add playlist</button>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="art-ring"></div><div class="art-word">SX</div></div>
+        <div class="hero-bottom"><span><i class="status-dot"></i> STREAMX HOME</span><span>BUILT FOR THE BIG SCREEN</span></div>
+      </section>
+
+      <section class="search-panel hidden" id="search-panel">
+        <label for="search-input">Search your library</label>
+        <input id="search-input" type="search" placeholder="Search anime, channels, movies..." autocomplete="off">
+      </section>
+
+      <section class="content-section" id="continue-section">
+        <div class="section-heading"><div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2>Quick access</h2></div></div>
+        <div class="quick-grid">
+          <button class="quick-card" data-view="live"><span class="quick-icon">▣</span><span><b>Live TV</b><small>Your playlist channels</small></span><span class="arrow">↗</span></button>
+          <button class="quick-card" data-view="anime"><span class="quick-icon">✦</span><span><b>Anime</b><small>English dub catalog</small></span><span class="arrow">↗</span></button>
+          <button class="quick-card" data-view="mylist"><span class="quick-icon">♡</span><span><b>My List</b><small>Your saved titles</small></span><span class="arrow">↗</span></button>
+        </div>
+      </section>
+
+      <section class="content-section" id="catalog-section">
+        <div class="section-heading"><div><p class="eyebrow" id="catalog-eyebrow">HAND-PICKED STARTING POINTS</p><h2 id="catalog-title">Anime to explore</h2></div><span class="section-note" id="catalog-note">English dub focus</span></div>
+        <div class="poster-grid" id="catalog-grid"></div>
+      </section>
+
+      <section class="content-section hidden" id="live-section">
+        <div class="section-heading"><div><p class="eyebrow">YOUR CHANNEL LINEUP</p><h2>Live TV</h2></div><button class="secondary-button small" id="live-add">Import M3U</button></div>
+        <div class="empty-state"><div class="empty-symbol">▣</div><h3>No channels loaded yet</h3><p>Import an M3U playlist from a provider or source you're authorized to use.</p><button class="primary-button" id="live-add-2">Choose playlist</button></div>
+        <div class="channel-list" id="channel-list"></div>
+      </section>
+
+      <section class="content-section hidden" id="settings-section">
+        <div class="section-heading"><div><p class="eyebrow">MAKE IT YOURS</p><h2>Settings</h2></div></div>
+        <div class="settings-card">
+          <div><b>Playlist setup</b><p>Load an authorized M3U playlist from your device.</p></div><button class="secondary-button" id="settings-playlist">Import M3U</button>
+          <div class="settings-divider"></div>
+          <div><b>Anime language</b><p>Catalog preference is set to English dub.</p></div><span class="setting-value">ENGLISH DUB</span>
+          <div class="settings-divider"></div>
+          <div><b>About STREAMX</b><p>A personal media hub. It does not provide TV channels or copyrighted video streams.</p></div>
+        </div>
+      </section>
+    </main>
+
+    <footer><span class="brand-mini">STREAM<span class="brand-x">X</span></span><span>YOUR MEDIA, ONE PLACE.</span></footer>
+  </div>
+
+  <input type="file" id="playlist-file" accept=".m3u,.m3u8,audio/x-mpegurl,application/vnd.apple.mpegurl" hidden>
+  <div class="modal-backdrop hidden" id="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+    <div class="modal-card"><button class="modal-close" id="modal-close" aria-label="Close">×</button><p class="eyebrow">TITLE DETAILS</p><h2 id="detail-title"></h2><p id="detail-description"></p><div class="modal-actions"><button class="primary-button" id="detail-save">＋ Add to My List</button><button class="secondary-button" id="detail-done">Close</button></div></div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
